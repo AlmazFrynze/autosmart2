@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" version="1.1" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+ <path d="m400 100c-165.69 0-300 134.31-300 300s134.31 300 300 300 300-134.31 300-300-134.31-300-300-300zm0 50c137.5 0 250 112.5 250 250s-112.5 250-250 250-250-112.5-250-250 112.5-250 250-250z" fill="#003478"/>
+ <path d="m200 400h400" stroke="#003478" stroke-width="50"/>
+ <path d="m400 200q-100 100-100 200t100 200" fill="none" stroke="#003478" stroke-width="50"/>
+</svg> 

@@ -15,7 +15,6 @@ yarn-error.log*
 
 # Build
 client/build/
-server/public/
 
 # Docker
 mongo_data/
@@ -30,8 +29,6 @@ Thumbs.db
 # Docker Compose override
 /docker-compose.override.yml
 
-# Uploads
-server/uploads/
 
 # Misc
 *.tgz 
