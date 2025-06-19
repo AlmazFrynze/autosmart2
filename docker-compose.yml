@@ -33,6 +33,8 @@ services:
       - "3000:80"
     depends_on:
       - server
+    environment:
+      - REACT_APP_API_URL=http://autosmart-server:5000
 
 volumes:
   mongo_data: 

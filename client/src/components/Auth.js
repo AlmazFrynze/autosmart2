@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function Auth({ onLogin, onClose }) {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
@@ -29,7 +31,7 @@ function Auth({ onLogin, onClose }) {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/auth/${isLogin ? 'login' : 'register'}`, {
+      const response = await fetch(`${API_URL}/api/auth/${isLogin ? 'login' : 'register'}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -3,6 +3,8 @@ import Auth from './components/Auth';
 import SmartSearch from './components/SmartSearch';
 import AutoQuiz from './components/AutoQuiz';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 function App() {
   const [cars, setCars] = useState([]);
   const [filter, setFilter] = useState('');
@@ -118,7 +120,7 @@ function App() {
         }
       }
       
-      const url = `http://localhost:5000/api/cars?${queryParams.toString()}`;
+      const url = `${API_URL}/api/cars?${queryParams.toString()}`;
       console.log('Fetching cars from URL:', url);
 
       try {
@@ -140,7 +142,7 @@ function App() {
     // Проверяем наличие токена при загрузке
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:5000/api/auth/me', {
+      fetch(`${API_URL}/api/auth/me`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -215,7 +217,7 @@ function App() {
 
     const isEdit = editingCar && editingCar._id;
     const method = isEdit ? 'PUT' : 'POST';
-    const url = isEdit ? `http://localhost:5000/api/cars/${editingCar._id}` : 'http://localhost:5000/api/cars';
+    const url = isEdit ? `${API_URL}/api/cars/${editingCar._id}` : `${API_URL}/api/cars`;
 
     const formData = new FormData();
     Object.entries(newCar).forEach(([key, value]) => {
@@ -292,7 +294,7 @@ function App() {
       return;
     }
 
-    fetch(`http://localhost:5000/api/cars/${id}`, {
+    fetch(`${API_URL}/api/cars/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -362,9 +364,9 @@ function App() {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return '';
     if (imagePath.startsWith('/public/')) {
-      return `http://localhost:5000${imagePath}`;
+      return `${API_URL}${imagePath}`;
     }
-    return `http://localhost:5000/uploads/${imagePath}`;
+    return `${API_URL}/uploads/${imagePath}`;
   };
 
   const handleSearch = (e) => {
