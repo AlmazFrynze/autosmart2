@@ -31,11 +31,6 @@ services:
     restart: always
     ports:
       - "3000:80"
-<<<<<<< HEAD
-=======
-    depends_on:
-      - server
->>>>>>> c8929d3f7aece0c7cac5f6ab8e22a8531a0e7255
     environment:
       - REACT_APP_API_URL=http://autosmart-server:5000
 
