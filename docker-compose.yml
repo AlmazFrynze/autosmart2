@@ -19,6 +19,7 @@ services:
     environment:
       - MONGODB_URI=mongodb://mongo:27017/autosmart
       - NODE_ENV=production
+      - JWT_SECRET=autosmart_secret_key_2024
     depends_on:
       - mongo
     volumes:
