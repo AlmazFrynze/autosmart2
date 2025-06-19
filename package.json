@@ -1,0 +1,21 @@
+{
+    "name": "autosmart",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "client": "cd client && npm start",
+        "server": "cd server && node index.js"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "dotenv": "^16.5.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.15.1",
+        "multer": "^2.0.0",
+        "react-router-dom": "^7.6.1"
+    }
+}

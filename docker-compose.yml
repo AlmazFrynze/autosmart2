@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: autosmart-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  server:
+    build: ./server
+    container_name: autosmart-server
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/autosmart
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+    volumes:
+      - ./server/uploads:/app/uploads
+      - ./server/public:/app/public
+
+  client:
+    build: ./client
+    container_name: autosmart-client
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+
+volumes:
+  mongo_data: 
