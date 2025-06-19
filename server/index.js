@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 .catch(err => console.error('Ошибка подключения к MongoDB:', err));
 
 // Маршруты
+app.use('/api/auth', authRoutes);
 app.use('/api/cars', carRoutes);
 app.use('/api/users', userRoutes);
 
